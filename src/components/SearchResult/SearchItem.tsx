@@ -4,7 +4,6 @@ import {
   Icon,
   Stack,
   Text,
-  ToastProvider,
   Tooltip,
   useToast,
 } from '@channel.io/bezier-react'

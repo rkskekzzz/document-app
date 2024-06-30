@@ -1,6 +1,4 @@
 const DOCUMENT_BASE_URL = 'https://document-api.channel.io'
-const GENERAL_BASE_URL =
-  'https://app-store-api.channel.io/general/v1/native/functions'
 
 function httpClient(baseUrl: string, instanceInit: RequestInit = {}) {
   return async function http<T>(path: string, init: RequestInit = {}) {
@@ -34,10 +32,3 @@ function httpClient(baseUrl: string, instanceInit: RequestInit = {}) {
 }
 
 export const document = httpClient(DOCUMENT_BASE_URL)
-export const general = httpClient(GENERAL_BASE_URL)
-export const documentWithToken = (token: string) =>
-  httpClient(DOCUMENT_BASE_URL, {
-    headers: {
-      'x-access-token': `${token}`,
-    },
-  })
