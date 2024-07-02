@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Box, Button, Stack, Text, TextField } from '@channel.io/bezier-react'
 import { Command } from 'cmdk'
-import { close, setSize } from '../utils/wam'
 import { CancelIcon } from '@channel.io/bezier-icons'
 import { useDebouncedCallback } from 'use-debounce'
 import { searchDocument } from '../api/space'
@@ -33,7 +32,10 @@ function Search() {
   }, 500)
 
   useEffect(function initialize() {
-    setSize(700, 700)
+    window.ChannelIOWam?.setSize({
+      width: 700,
+      height: 700,
+    })
   }, [])
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +69,7 @@ function Search() {
               styleVariant="tertiary"
               colorVariant="monochrome-dark"
               leftContent={CancelIcon}
-              onClick={() => close()}
+              onClick={() => window.ChannelIOWam?.close()}
             />
           </Stack>
           <TextField
