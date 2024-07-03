@@ -38,9 +38,9 @@ function SearchResult({
             </Command.Loading>
           ) : (
             <Command.Group
-              heading={t('search.result', {
-                replace: searchResult?.length.toString() || '0',
-              })}
+            // heading={t('search.result', {
+            //   replace: searchResult?.length.toString() || '0',
+            // })}
             >
               <Command.Empty>
                 <Stack
