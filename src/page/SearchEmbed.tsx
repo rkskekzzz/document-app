@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
-import { Box, Stack } from '@channel.io/bezier-react'
+import { Stack } from '@channel.io/bezier-react'
 import { Command } from 'cmdk'
 import styled from 'styled-components'
 import { Header } from '../components/Header'
 import { useLanguage } from '../hooks/useLanguage'
+import { DynamicBox } from './Global.styled'
 
 const Iframe = styled.iframe`
   all: unset;
@@ -23,10 +24,7 @@ function SearchEmbed() {
 
   return (
     <Command shouldFilter={false}>
-      <Box
-        padding={24}
-        height={700}
-      >
+      <DynamicBox height={700}>
         <Stack
           direction="vertical"
           spacing={24}
@@ -38,7 +36,7 @@ function SearchEmbed() {
           />
           <Iframe src={`https://docs.channel.io/help/${language}?query=`} />
         </Stack>
-      </Box>
+      </DynamicBox>
     </Command>
   )
 }

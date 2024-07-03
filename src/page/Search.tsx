@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Box, Stack, TextField } from '@channel.io/bezier-react'
+import { Stack, TextField } from '@channel.io/bezier-react'
 import { Command } from 'cmdk'
 import { useDebouncedCallback } from 'use-debounce'
 import { searchDocument } from '../api/space'
@@ -7,6 +7,7 @@ import { SearchResult } from '../components/SearchResult'
 import { SearchResultType, deserialize } from '../model/search'
 import { Header } from '../components/Header'
 import { useLanguage } from '../hooks/useLanguage'
+import { DynamicBox } from './Global.styled'
 
 function Search() {
   const { language, setLanguage } = useLanguage()
@@ -52,10 +53,7 @@ function Search() {
 
   return (
     <Command shouldFilter={false}>
-      <Box
-        padding={24}
-        height={700}
-      >
+      <DynamicBox height={700}>
         <Stack
           direction="vertical"
           spacing={24}
@@ -88,7 +86,7 @@ function Search() {
             />
           )}
         </Stack>
-      </Box>
+      </DynamicBox>
     </Command>
   )
 }
