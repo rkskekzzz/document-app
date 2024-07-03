@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
-import { Box, Button, Stack, Text, TextField } from '@channel.io/bezier-react'
+import { Box, Stack, TextField } from '@channel.io/bezier-react'
 import { Command } from 'cmdk'
-import { CancelIcon } from '@channel.io/bezier-icons'
 import { useDebouncedCallback } from 'use-debounce'
 import { searchDocument } from '../api/space'
-import { SearchResult } from '..//components/SearchResult'
+import { SearchResult } from '../components/SearchResult'
 import { SearchResultType, deserialize } from '../model/search'
+import { Header } from '../components/Header'
+import { useLanguage } from '../hooks/useLanguage'
 
 function Search() {
+  const { language, setLanguage } = useLanguage()
+
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [searchResult, setSearchResult] = useState<SearchResultType[]>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -54,24 +57,10 @@ function Search() {
           spacing={24}
           height="100%"
         >
-          <Stack
-            direction="horizontal"
-            justify="between"
-          >
-            <Text
-              bold
-              color="txt-black-darkest"
-              typo="24"
-            >
-              사용 가이드 검색
-            </Text>
-            <Button
-              styleVariant="tertiary"
-              colorVariant="monochrome-dark"
-              leftContent={CancelIcon}
-              onClick={() => window.ChannelIOWam?.close()}
-            />
-          </Stack>
+          <Header
+            language={language}
+            setLanguage={setLanguage}
+          />
           <TextField
             size="m"
             allowClear

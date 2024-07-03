@@ -1,6 +1,8 @@
 import { AppProvider, ToastProvider } from '@channel.io/bezier-react'
 // import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Search from './page/Search'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import SearchPoc from './page/SearchPoc'
 
 declare global {
   interface Window {
@@ -20,15 +22,18 @@ function App() {
   return (
     <AppProvider>
       <ToastProvider>
-        <Search />
-        {/* <BrowserRouter>
-        <Routes>
-          <Route
-            path=""
-            element={<Search />}
-          />
-        </Routes>
-        </BrowserRouter> */}
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="search"
+              element={<Search />}
+            />
+            <Route
+              path="search-poc"
+              element={<SearchPoc />}
+            />
+          </Routes>
+        </BrowserRouter>
       </ToastProvider>
     </AppProvider>
   )
