@@ -16,6 +16,10 @@ export const CoverImage = styled.img`
   height: 80px;
 
   border-radius: 4px;
+
+  @media (width <700) {
+    display: none;
+  }
 `
 
 export const CopyButton = styled(Button)`
