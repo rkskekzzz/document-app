@@ -21,7 +21,7 @@ function Search() {
     searchDocument({
       query: { keyword: value },
       systemDomain: 'help',
-      languageCode: 'ko',
+      languageCode: language,
     })
       .then((res) => {
         setSearchResult(deserialize(res))
@@ -46,6 +46,10 @@ function Search() {
     debounced(e.target.value)
   }
 
+  useEffect(() => {
+    setSearchResult([])
+  }, [language])
+
   return (
     <Command shouldFilter={false}>
       <Box
@@ -56,6 +60,7 @@ function Search() {
           direction="vertical"
           spacing={24}
           height="100%"
+          paddingBottom={20}
         >
           <Header
             language={language}

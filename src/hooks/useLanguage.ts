@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const languages = {
+export const languages = {
   ko: '한국어',
   en: 'English',
   ja: '日本語',

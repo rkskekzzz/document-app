@@ -11,8 +11,9 @@ const Iframe = styled.iframe`
   width: 100%;
 `
 
-function Search() {
+function SearchEmbed() {
   const { language, setLanguage } = useLanguage()
+
   useEffect(function initialize() {
     window.ChannelIOWam?.setSize({
       width: 700,
@@ -35,11 +36,11 @@ function Search() {
             language={language}
             setLanguage={setLanguage}
           />
-          <Iframe src="https://docs.channel.io/help/ko?query=" />
+          <Iframe src={`https://docs.channel.io/help/${language}?query=`} />
         </Stack>
       </Box>
     </Command>
   )
 }
 
-export default Search
+export default SearchEmbed
