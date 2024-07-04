@@ -17,7 +17,7 @@ export const CoverImage = styled.img`
 
   border-radius: 4px;
 
-  @media (width <700) {
+  @media (max-width: 699px) {
     display: none;
   }
 `
