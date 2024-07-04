@@ -19,7 +19,7 @@ import { styled } from 'styled-components'
 
 const sizes = {
   mobile: {
-    width: 385,
+    width: 400,
     height: 667,
   },
   tablet: {
