@@ -128,18 +128,19 @@ export default function SearchItem({
                 onClick={(e) => {
                   e.preventDefault()
                   e.stopPropagation()
-                  navigator.clipboard
-                    .writeText(`${websiteUrl}#:~:text=${encodedText}`)
-                    .then(() => {
-                      toast.addToast('링크가 복사되었습니다.', {
-                        preset: 'success',
+                  if (websiteUrl)
+                    navigator.clipboard
+                      .writeText(websiteUrl)
+                      .then(() => {
+                        toast.addToast('링크가 복사되었습니다.', {
+                          preset: 'success',
+                        })
                       })
-                    })
-                    .catch(() => {
-                      toast.addToast('링크 복사에 실패했습니다.', {
-                        preset: 'error',
+                      .catch(() => {
+                        toast.addToast('링크 복사에 실패했습니다.', {
+                          preset: 'error',
+                        })
                       })
-                    })
                 }}
               />
             </Tooltip>
